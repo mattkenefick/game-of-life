@@ -312,18 +312,32 @@ class LifeLogic // implements IBoardLogic
          * Why would you do this?
          *
          * Because it's a challenge, and challenges are fun.
+         *
+         * Edit:
+         *
+         *     Before, we were using parseInt(value, radix) with integers
+         *     but I made the mistake of thinking I could use a base-10
+         *     integer in the value position like:
+         *
+         *         parseInt(13, 19);
+         *
+         *      but that evaluates out to 22, not 13. We should be using
+         *      single characters, e.g. 13 = 'd'.
+         *
+         *      This limits us to 36 at the moment and adds more logic,
+         *      but it's worth investigating further.
          */
         const grid = {
-            [(a * x) + Math.abs(parseInt(index % x - 1, x))]: 1,
-            [(a * x) + parseInt(index % x - 0, x)]: 1,
-            [(a * x) + Math.min(x, parseInt(index % x + 1, x))]: 1,
+            [(a * x) + Math.abs(parseInt((index % x - 1).toString(36), x))]: 1,
+            [(a * x) + parseInt((index % x - 0).toString(36), x)]: 1,
+            [(a * x) + Math.min(x, parseInt((index % x + 1).toString(36), x))]: 1,
 
-            [(b * x) + Math.abs(parseInt(index % x - 1, x))]: 1,
-            [(b * x) + Math.min(x, parseInt(index % x + 1, x))]: 1,
+            [(b * x) + Math.abs(parseInt((index % x - 1).toString(36), x))]: 1,
+            [(b * x) + Math.min(x, parseInt((index % x + 1).toString(36), x))]: 1,
 
-            [(c * x) + Math.abs(parseInt(index % x - 1, x))]: 1,
-            [(c * x) + parseInt(index % x - 0, x)]: 1,
-            [(c * x) + Math.min(x, parseInt(index % x + 1, x))]: 1,
+            [(c * x) + Math.abs(parseInt((index % x - 1).toString(36), x))]: 1,
+            [(c * x) + parseInt((index % x - 0).toString(36), x)]: 1,
+            [(c * x) + Math.min(x, parseInt((index % x + 1).toString(36), x))]: 1,
         };
 
         output = Object
