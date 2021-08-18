@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Conway's Game of Life</title>
+
+        <!-- Typography -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;400&family=Roboto+Slab:wght@100;400;700&display=swap" rel="stylesheet">
+
+        <!-- Style -->
+        <link rel="stylesheet" href="./style/screen.css" />
+    </head>
+    <body>
+        <main>
+            <article>
+                <header>
+                    <h1>Game of Life</h1>
+                    <p>
+                        Cellular automaton devised by the British mathematician John Horton Conway in 1970.
+                    </p>
+                    <time>
+                        August 17th, 2021
+                    </time>
+                </header>
+                <section>
+                    <p>
+                        The other day,
+                        <a href="https://alexgolec.dev/reddit-interview-problems-the-game-of-life/" target="_blank">this article</a>
+                        came across my feed which made me curious about
+                        <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway's Game of Life</a>.
+                        As per Wikipedia:
+                    </p>
+                    <blockquote>
+                        The Game of Life, also known simply as Life, is a cellular automaton
+                        devised by the British mathematician John Horton Conway in 1970.
+                        It is a zero-player game, meaning that its evolution is determined by
+                        its initial state, requiring no further input. One interacts with the
+                        Game of Life by creating an initial configuration and observing how
+                        it evolves. It is Turing complete and can simulate a universal
+                        constructor or any other Turing machine.
+
+                    </blockquote>
+                    <p>
+                        The rules for <strong>Life</strong> are shown in the chart below.
+                        A <strong>neighbor</strong> is any adjacent item, including diagonals.
+                        Think <a href="https://en.wikipedia.org/wiki/Minesweeper_(video_game)">Minesweeper</a>:
+                    </p>
+
+                    <section>
+                        <h2>Rules</h2>
+                        <dl>
+                            <dt>Underpopulation</dt>
+                            <dd>
+                                <mark class="live">Live</mark>
+                                <span>cell with (0-1) living neighbors becomes</span>
+                                <mark class="dead">Dead</mark>
+                            </dd>
+
+                            <dt>Survival</dt>
+                            <dd>
+                                <mark class="live">Live</mark>
+                                <span>cell with (2-3) living neighbors stays</span>
+                                <mark class="live">Alive</mark>
+                            </dd>
+
+                            <dt>Overpopulation</dt>
+                            <dd>
+                                <mark class="live">Live</mark>
+                                <span>cell with (4+) living neighbors becomes</span>
+                                <mark class="dead">Dead</mark>
+                            </dd>
+
+                            <dt>Zombification</dt>
+                            <dd>
+                                <mark class="dead">Dead</mark>
+                                <span>cell with (3) living neighbors becomes</span>
+                                <mark class="live">Alive</mark>
+                            </dd>
+                        </dl>
+                    </section>
+                    <p>
+                        There are many solutions around for this problem; they often
+                        use multi-dimensional arrays and nested loops.
+                    </p>
+                    <p>
+                        I fell the down the rabbit-hole of trying to solve it for a
+                        flat array using maps. There was no particular reason for this
+                        other than the fact I wanted to. This solution is less about solving
+                        the problem the best way as opposed to solving it the way I wanted
+                        to solve it; for fun.
+                    </p>
+                </section>
+            </article>
+
+            <form>
+                <header>
+                    <h2>How to use</h2>
+
+                    <p>
+                        Changing the size of the board will generate a new random
+                        set of data. Increase iterations and pay attention to the
+                        changing numbers which represent <strong>neighbor count</strong>
+                        and how they follow the rules above.
+                    </p>
+                </header>
+                <fieldset>
+                    <label>
+                        <h5>Rows</h5>
+
+                        <input type="number" name="rows" min="3" max="20" step="1" value="8" />
+                    </label>
+                    <label>
+                        <h5>Columns</h5>
+
+                        <input type="number" name="columns" min="3" max="20" step="1" value="12" />
+                    </label>
+                    <label>
+                        <h5>Iterations</h5>
+
+                        <input type="number" name="iterations" min="0" max="9999" step="1" value="0" />
+                    </label>
+                </fieldset>
+            </form>
+
+            <div class="board-wrapper"></div>
+        </main>
+
+        <!-- Scripts -->
+        <script src="./script/app.js"></script>
+    </body>
+</html>

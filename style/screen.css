@@ -1,0 +1,162 @@
+
+/**
+ * Layout
+ * ------------------------------------------------------------------------- */
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: 'IBM Plex Sans', Helvetica, sans-serif;
+}
+
+main {
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+header {
+    padding: 5rem 5rem 2rem 5rem;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    font-family: 'Roboto Slab', 'Times New Roman', serif;
+    margin: 0;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 4rem;
+    opacity: 0.05;
+}
+
+header h1 + p {
+    font-size: 1.25rem;
+}
+
+header time {
+    color: orange;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+a {
+    color: darkorange;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+p,
+blockquote {
+    line-height: 2;
+}
+
+blockquote {
+    color: #444;
+    font-style: italic;
+}
+
+dl {
+    background: #fafafa;
+    box-shadow:
+        0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.028),
+        0 12.5px 10px rgba(0, 0, 0, 0.035),
+        0 22.3px 17.9px rgba(0, 0, 0, 0.042),
+        0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+        0 100px 80px rgba(0, 0, 0, 0.07)
+    ;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+    padding: 3rem;
+    width: 70%;
+}
+
+dl dt {
+    font-family: 'Roboto Slab', 'Times New Roman', serif;
+    font-size: 1.125rem;
+}
+
+dl dd {
+    margin: 0 0 1rem 0;
+}
+
+mark {
+	border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+	padding: 5px;
+    text-transform: uppercase;
+}
+
+mark.live {
+	background: #99ff99;
+}
+
+mark.dead {
+	background: #ff9999;
+}
+
+form fieldset {
+    align-items: flex-start;
+    border: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+form h5 {
+    color: #222;
+    font-family: 'Roboto Slab', 'Times New Roman', serif;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+form input[type=number] {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-family: 'Roboto Slab', 'Times New Roman', serif;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+}
+
+.board {
+	font-size: 0;
+    margin: 2rem auto;
+}
+
+.block {
+	background: #fff;
+	border: 1px solid #000;
+	display: inline-block;
+	font-size: 10px;
+	height: 30px;
+	line-height: 30px;
+	margin-left: -1px;
+	margin-top: -1px;
+	text-align: center;
+	width: 30px;
+}
+
+.block.filled {
+	background: #000;
+	color: #fff;
+}
+
+.block.active {
+	background: #f00;
+}
